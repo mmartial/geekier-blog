@@ -1,6 +1,9 @@
 ---
 title: "Hello World"
 date: 2024-02-20
+tags:
+- random
+- post
 ---
 
 First post...
