@@ -4,6 +4,7 @@ date: 2024-02-20
 tags:
 - random
 - post
+show_downloads: [false]
 ---
 
 First post...
