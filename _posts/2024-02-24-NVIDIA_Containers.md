@@ -7,6 +7,7 @@ tags:
 - docker
 - podman
 - nvidia
+- ubuntu22
 show_downloads: [false]
 ---
 
