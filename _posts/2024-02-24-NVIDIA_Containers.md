@@ -15,7 +15,7 @@ Set up instructions for NVIDIA GPUs container toolkits on Linux host (running Ub
 
 <h1>Setting up NVIDIA docker & podman</h1>
 
-Revision: 20240225-1
+Revision: 20240225-0
 
 - [1. Preamble](#1-preamble)
   - [1.1. Confirming the nvidia driver is available](#11-confirming-the-nvidia-driver-is-available)
@@ -55,6 +55,7 @@ On a Ubuntu 22.04 system from a terminal:
 for pkg in docker.io docker-doc docker-compose podman-docker containerd runc; do sudo apt-get remove $pkg; done
 ```
 - Add support for GPG keys, load Docker’s key, and set up the repository.
+
 ```bash
 sudo apt-get update
 sudo apt-get install ca-certificates curl gnupg
@@ -76,7 +77,9 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin 
 ```bash
 sudo docker run hello-world
 ```
-- (Optional)  make `docker` available without `sudo`, which has some security implications, as detailed in [https://docs.docker.com/engine/install/linux-postinstall/](https://docs.docker.com/engine/install/linux-postinstall/). You will need to completely logout for the changes to take effect. Once this is done, you should be able to run `docker run hello-world` without the need of a `sudo`.
+
+- (Optional)  make `docker` is available without `sudo`, which has some security implications, as detailed in [https://docs.docker.com/engine/install/linux-postinstall/](https://docs.docker.com/engine/install/linux-postinstall/). You will need to completely logout for the changes to take effect. Once this is done, you should be able to run `docker run hello-world` without the need of a `sudo`.
+
 ```bash
 sudo usermod -aG docker $USER
 ```
@@ -213,7 +216,7 @@ podman run --rm --device nvidia.com/gpu=all ubuntu nvidia-smi
 
 # 3. Revision History
 
-- 20240225-1: Intitial release.
+- 20240225-0: Intitial release.
  
 ## 3.1. Contribute
 
