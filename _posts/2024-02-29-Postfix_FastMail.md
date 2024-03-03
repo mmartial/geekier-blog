@@ -10,11 +10,13 @@ tags:
 show_downloads: [false]
 ---
 
-Set up instructions for using Postfix as a Send-Only SMTP server, using Fastmail.com, on a Ubuntu Linux 22.04 server.
+Postfix is a free, open-source mail transfer agent (MTA) used to route and deliver email over the Internet.
+FastMail is a paid service that provides a secure, privacy-focused email provider supporting custom domains.
+This post details the setup instructions for using Postfix as a Send-Only SMTP server, using Fastmail.com, on a Ubuntu Linux 22.04 server.
 
 <h1>Postfix using Fastmail.com</h1>
 
-Revision: 20240229-0
+Revision: 20240302-0
 
 - [1. Preamble](#1-preamble)
   - [1.1. How to use this guide](#11-how-to-use-this-guide)
@@ -162,7 +164,7 @@ inet_interfaces = loopback-only
 inet_protocols = ipv4
 ```
 
-- Comment the earlier `smtpd_tls_security_level` and  `relayhost` lines to avoid warnings, then add the following to the end of the file:
+- Comment the earlier `smtp_tls_security_level` and  `relayhost` lines to avoid warnings, then add the following to the end of the file:
 
 ```bash
 relayhost = [smtp.fastmail.com]:465
@@ -207,6 +209,7 @@ The real confirmation is the reception of the email, sent by `push@example.com` 
 
 # 3. Revision History
 
+- 20230302-0: Introduction extension + `smtpd` vs `smtp` configuration fix
 - 20240229-0: Intitial release.
  
 ## 3.1. Contribute
