@@ -111,7 +111,7 @@ It is up to you to act on `Warning: A reboot is required to complete this upgrad
 
 As noted earlier, our setup is configured to automatically install security updates only.
 
-When your system informs you that it requires a reboot, this might be an opportune time to run other `sudo apt-get -y update`, `apt list --upgradable`, `sudo snap refresh --list` as needed.
+When your system informs you that it requires a reboot, this might be an opportune time to run `sudo apt-get update`, `sudo snap refresh --list`, `brew update`, ... as needed.
 
 
 # 3. Revision History
