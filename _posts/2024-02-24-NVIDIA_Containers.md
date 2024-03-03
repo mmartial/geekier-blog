@@ -2,20 +2,23 @@
 title: "Set up NVIDIA compatible containers"
 date: 2024-02-24
 tags:
-- linux
-- guide
-- docker
-- podman
-- nvidia
-- ubuntu22
+- Linux
+- Guide
+- Docker
+- Podman
+- NVIDIA
+- Ubuntu22
 show_downloads: [false]
 ---
 
-Set up instructions for NVIDIA GPUs container toolkits on Linux host (running Ubuntu 22.04) for docker and podman usage.
+The NVIDIA GPU Container Runtime is a plugin that enables container platforms to securely access and manage NVIDIA GPUs as part of a containerized application environment.
+Docker is an open-source platform that automates the deployment, scaling, and management of applications within lightweight, portable containers.
+Podman is an open-source, daemonless container engine designed for developing, managing, and running OCI Containers, functioning as a drop-in replacement for Docker.
+This post contains the setup instructions for NVIDIA GPU container toolkits on Linux hosts running Ubuntu 22.04 for docker and podman usage.
 
 <h1>Setting up NVIDIA docker & podman</h1>
 
-Revision: 20240225-0
+Revision: 20240302-0
 
 - [1. Preamble](#1-preamble)
   - [1.1. Confirming the nvidia driver is available](#11-confirming-the-nvidia-driver-is-available)
@@ -85,7 +88,7 @@ sudo usermod -aG docker $USER
 ```
 ## 1.3. Install podman (> 4.1.0) on Ubuntu 22.04
 
-On Ubuntu 22.04, `apt search podman` returns version 3 of podman, we need a version of podman above 4.1.0 to be able to use the Container Device Interface (CDI) for `nvidia-container-toolkit`.
+On Ubuntu 22.04, `apt search podman` returns version 3 of `podman`, we need a version of `podman` above 4.1.0 to be able to use the Container Device Interface (CDI) for `nvidia-container-toolkit`.
 
 We recommend using [Homebrew](https://brew.sh/) to get a more recent version of `podman`.
 
@@ -142,7 +145,7 @@ For further details on what this supports, NVIDIA has a good primer document at 
 complete instructions available at https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html
 On this page you will find details on:
 - supported Linux distributions
-- NVIDIA drivers requirements and minimal hardware supported
+NVIDIA driver requirements and minimal hardware supported
 - Docker versions
 
 Note that the NVIDIA Container Toolkit includes support for generating Container Device Interface (CDI)  for `podman` as well.
@@ -216,6 +219,7 @@ podman run --rm --device nvidia.com/gpu=all ubuntu nvidia-smi
 
 # 3. Revision History
 
+- 20240302-0: Introduction extension, grammar fixes.
 - 20240225-0: Intitial release.
  
 ## 3.1. Contribute
