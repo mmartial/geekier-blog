@@ -50,7 +50,7 @@ To confirm it is functional, after a reboot, from a terminal,  run `nvidia-smi`;
 ## 1.2. Docker setup (from docker.io)
 
 We will follow the instructions to set it up using the `apt` registry option.
-Details can be found at https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository
+Details can be found at [https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository](https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository).
 
 On a Ubuntu 22.04 system from a terminal:
 - Clean up potential conflicting packages.
@@ -136,16 +136,15 @@ podman run --rm -it ubuntu:22.04 /bin/bash
 ```
 will download `ubuntu:22.04` and give you a `bash` shell prompt in an interactive session, and will delete the created container when you exit the shell.
 
-We note that `podman` has a `/home/linuxbrew/.linuxbrew/etc/containers/registries.conf` file already configured with `unqualified-search-registries=["docker.io"]`. More details on that topic at https://podman.io/docs/installation#registriesconf
+We note that `podman` has a `/home/linuxbrew/.linuxbrew/etc/containers/registries.conf` file already configured with `unqualified-search-registries=["docker.io"]`. More details on that topic at [https://podman.io/docs/installation#registriesconf](https://podman.io/docs/installation#registriesconf).
 
 
 # 2. NVIDIA Container Toolkit
 
-For further details on what this supports, NVIDIA has a good primer document at https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/overview.html and 
-complete instructions available at https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html
+For further details on what this supports, NVIDIA has a good primer document at [https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/overview.html](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/overview.html) and detailed instructions are available at [https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html).
 On this page you will find details on:
 - supported Linux distributions
-NVIDIA driver requirements and minimal hardware supported
+- NVIDIA driver requirements and minimal hardware supported
 - Docker versions
 
 Note that the NVIDIA Container Toolkit includes support for generating Container Device Interface (CDI)  for `podman` as well.
@@ -195,13 +194,13 @@ To make this runtime the default, add the following content to the top of the fi
 
 ## 2.2. Podman
 
-For `podman` we will follow the instructions for Container Device Interface (CDI) setup from https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/cdi-support.html
+For `podman` we will base the instructions for Container Device Interface (CDI) setup on [https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/cdi-support.html](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/cdi-support.html).
 
 - Verify that the required tool is installed:
 ```bash
 nvidia-ctk --version
 ```
-, in this run we have `NVIDIA Container Toolkit CLI version 1.14.5`
+, in this run, we have `NVIDIA Container Toolkit CLI version 1.14.5`
 - If successful, have it generate the CDI specifications
 ```bash
 sudo nvidia-ctk cdi generate --output=/etc/cdi/nvidia.yaml
@@ -225,4 +224,4 @@ podman run --rm --device nvidia.com/gpu=all ubuntu nvidia-smi
  
 ## 3.1. Contribute
 
-If you see a problem, or simply want to contribute, this is a GitHub-based repo, feel free to send a PR.
+If you see a problem or simply want to contribute, this is a GitHub-based repo, feel free to send a PR.

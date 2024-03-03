@@ -29,26 +29,26 @@ Revision: 20240302-0
   - [3.1. Contribute](#31-contribute)
 
 Instructions for a Linux host running Ubuntu 22.04 server to set up unattended upgrades, so that your server will automatically upgrade security updates (only).
-Optionally, we will request the tool to send us emails each time it runs, and in particular to let us know if a reboot of the server is needed and will rely on fastmail.com to send those using Postfix. Another blog post was added on the same original date as this post on this topic.
+Optionally, we will request the tool to send us emails each time it runs, and in particular to let us know if a reboot of the server is needed. Another blog post was added on the same original date as this post on the topic of using FastMail with Postfix to send emails.
 
 # 1. Preamble
 
 "Unattended Upgrades" on Ubuntu is configured to automatically install security updates only. This ensures that the system receives important security patches without manual intervention, helping to keep the system secure against vulnerabilities. 
 While it can be configured to update a broader range of packages, doing so may increase the risk of introducing stability issues with automatic updates of non-security critical packages.
 
-These instructions will enable the end user to have security updates only done automatically. 
+These instructions will enable the end user to have security updates (only) done automatically. 
 
 ## 1.1. Ubuntu Pro
 
 If your system runs Ubuntu Pro, some additional security packages might get installed.
 
-[Ubuntu Pro](https://ubuntu.com/pro) requires a Ubuntu account and is free for up to five systems. It is a subscription-based service offered by Canonical, providing enhanced security and compliance features for Ubuntu users, including extended security maintenance (ESM) for applications and infrastructure, patching for high and critical Common Vulnerabilities and Exposures (CVEs) for supported packages, and additional compliance certifications for regulated industries or sensitive environments. If you have it enabled, go to https://ubuntu.com/pro/dashboard and look at the "Command to attach a machine" (in the form of `sudo pro attach TOKEN`) to enable it. When run, you will be prompted with additional details on the different enabled.
+[Ubuntu Pro](https://ubuntu.com/pro) requires a Ubuntu account and is free for up to five systems. It is a subscription-based service offered by Canonical, providing enhanced security and compliance features for Ubuntu users, including extended security maintenance (ESM) for applications and infrastructure, patching for high and critical Common Vulnerabilities and Exposures (CVEs) for supported packages, and additional compliance certifications for regulated industries or sensitive environments. If you have it enabled, go to [https://ubuntu.com/pro/dashboard](https://ubuntu.com/pro/dashboard) and look at the "Command to attach a machine" (in the form of `sudo pro attach TOKEN`) to enable it. When run, you will be prompted with additional details on the different services enabled.
 
 # 2. Unattended upgrades
 
 ## 2.1. Initial setup
 
-Ubuntu's original writeup is at https://help.ubuntu.com/community/AutomaticSecurityUpdates
+Ubuntu's original writeup is at [https://help.ubuntu.com/community/AutomaticSecurityUpdates](https://help.ubuntu.com/community/AutomaticSecurityUpdates)
 
 ```bash
 # Install needed packages
