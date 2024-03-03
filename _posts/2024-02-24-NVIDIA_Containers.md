@@ -52,12 +52,13 @@ To confirm it is functional, after a reboot, from a terminal,  run `nvidia-smi`;
 We will follow the instructions to set it up using the `apt` registry option.
 Details can be found at [https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository](https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository).
 
-On a Ubuntu 22.04 system from a terminal:
-- Clean up potential conflicting packages.
+On a Ubuntu 22.04 system from a terminal, clean up potential conflicting packages:
+  
 ```bash
 for pkg in docker.io docker-doc docker-compose podman-docker containerd runc; do sudo apt-get remove $pkg; done
 ```
-- Add support for GPG keys, load Docker’s key, and set up the repository.
+
+Add support for GPG keys, load Docker’s key, and set up the repository:
 
 ```bash
 sudo apt-get update
@@ -71,28 +72,32 @@ echo \
   "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | \
   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 ```
-- Perform the package installation
+Perform required packages installation:
+
 ```bash
 sudo apt-get update
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 ```
-- Confirm `docker` is functional, by checking if you get the `Hello from Docker!` message running its `hello-world`.
+
+Confirm `docker` is functional, by checking if we get the `Hello from Docker!` message running its `hello-world`:
+
 ```bash
 sudo docker run hello-world
 ```
 
-- (Optional)  make `docker` is available without `sudo`, which has some security implications, as detailed in [https://docs.docker.com/engine/install/linux-postinstall/](https://docs.docker.com/engine/install/linux-postinstall/). You will need to completely logout for the changes to take effect. Once this is done, you should be able to run `docker run hello-world` without the need of a `sudo`.
+Optionally,  make `docker` available without `sudo`, which has some security implications, as detailed in [https://docs.docker.com/engine/install/linux-postinstall/](https://docs.docker.com/engine/install/linux-postinstall/). You will need to completely logout for the changes to take effect. Once this is done, you should be able to run `docker run hello-world` without the need for a `sudo`:
 
 ```bash
 sudo usermod -aG docker $USER
 ```
+
 ## 1.3. Install podman (> 4.1.0) on Ubuntu 22.04
 
 On Ubuntu 22.04, `apt search podman` returns version 3 of `podman`, we need a version of `podman` above 4.1.0 to be able to use the Container Device Interface (CDI) for `nvidia-container-toolkit`.
 
 We recommend using [Homebrew](https://brew.sh/) to get a more recent version of `podman`.
 
-To install `brew` (per [Homebrew](https://brew.sh/)'s instructions)
+To install `brew` (per [Homebrew](https://brew.sh/)'s instructions):
 ```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
@@ -149,8 +154,8 @@ On this page you will find details on:
 
 Note that the NVIDIA Container Toolkit includes support for generating Container Device Interface (CDI)  for `podman` as well.
 
-Installing the toolkit:
-- Setup the package repository and the GPG keys:
+Setup the package repository and the GPG keys:
+
 ```bash
 distribution=$(. /etc/os-release;echo $ID$VERSION_ID) \
       && curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey | sudo gpg --dearmor -o /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg \
@@ -158,7 +163,9 @@ distribution=$(. /etc/os-release;echo $ID$VERSION_ID) \
             sed 's#deb https://#deb [signed-by=/usr/share/keyrings/nvidia-container-toolkit-keyring.gpg] https://#g' | \
             sudo tee /etc/apt/sources.list.d/nvidia-container-toolkit.list
 ```
-- Install the toolkit
+
+Install the toolkit:
+
 ```bash
 sudo apt-get update
 sudo apt-get install -y nvidia-container-toolkit
@@ -166,20 +173,26 @@ sudo apt-get install -y nvidia-container-toolkit
 
 ## 2.1. Docker
 
-- Configure `docker` to recognize the toolkit
+Configure `docker` to recognize the toolkit:
+
 ```bash
 sudo nvidia-ctk runtime configure --runtime=docker
 ```
-- Restart `docker`
+
+Restart `docker`
+
 ```bash
 sudo systemctl restart docker
 ```
-- Confirm `docker` (no `sudo` needed if you made the optional step in the last section) sees any GPU that you have running on your system by having it run `nvidia-smi`. Note that `docker` will need both `--runtime=nvidia` and `--gpus all` to use the proper runtime and have access to `all` the GPUs
+
+Confirm `docker` (no `sudo` needed if you made the optional step in the last section) sees any GPU that you have running on your system by having it run `nvidia-smi`. Note that `docker` will need both `--runtime=nvidia` and `--gpus all` to use the proper runtime and have access to `all` the GPUs
+
 ```bash
 docker run --rm --runtime=nvidia --gpus all nvidia/cuda:11.6.2-base-ubuntu20.04 nvidia-smi
 ```
 
 You can inspect your `/etc/docker/daemon.json` file to see that the `nvidia-container-runtime` is added:
+
 ```json 
 [...]
     "runtimes": {
@@ -196,22 +209,27 @@ To make this runtime the default, add the following content to the top of the fi
 
 For `podman` we will base the instructions for Container Device Interface (CDI) setup on [https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/cdi-support.html](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/cdi-support.html).
 
-- Verify that the required tool is installed:
+Verify that the required tool is installed:
+
 ```bash
 nvidia-ctk --version
 ```
 , in this run, we have `NVIDIA Container Toolkit CLI version 1.14.5`
-- If successful, have it generate the CDI specifications
+
+If successful, have it generate the CDI specifications
 ```bash
 sudo nvidia-ctk cdi generate --output=/etc/cdi/nvidia.yaml
 ```
 , at the end of this run, we have `INFO[0001] Generated CDI spec with version 0.5.0`
-- Confirm devices show up (might be `0` and `all`)
+
+Confirm devices show up (might be `0` and `all`)
+
 ```bash
 grep "  name:" /etc/cdi/nvidia.yaml
 ```
 
 Test `podman` (no `sudo` needed) using the proper devices `--device nvidia.com/gpu=all` 
+
 ```bash
 podman run --rm --device nvidia.com/gpu=all ubuntu nvidia-smi
 ```
