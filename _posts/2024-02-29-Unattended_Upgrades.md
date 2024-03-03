@@ -8,13 +8,13 @@ tags:
 show_downloads: [false]
 ---
 
-"Unattended Upgrades" is a package available on Ubuntu systems that automatically installs updates for security and, optionally, other software packages. 
+"[Unattended Upgrades](https://manpages.ubuntu.com/manpages/jammy/man8/unattended-upgrade.8.html)" is a package available on [Ubuntu](https://ubuntu.com/) systems that automatically installs updates for security and, optionally, other software packages. 
 This tool is crucial for maintaining system security and stability by ensuring that vulnerabilities and bugs are promptly addressed without requiring manual intervention.
-This post details the setup instructions for using it for security updates on an Ubuntu Linux 22.04 server, and sending emails on completion using Postfix.
+This post details the setup instructions for using it for security updates on an [Ubuntu Linux 22.04 server](https://ubuntu.com/server) and sending emails on completion.
 
 <h1>Unattended Upgrades</h1>
 
-Revision: 20240229-0
+Revision: 20240302-0
 
 - [1. Preamble](#1-preamble)
   - [1.1. Ubuntu Pro](#11-ubuntu-pro)
@@ -116,6 +116,7 @@ When your system informs you that it requires a reboot, this might be an opportu
 
 # 3. Revision History
 
+- 20240302-0: Added links to the introduction section.
 - 20240229-0: Intitial release.
  
 ## 3.1. Contribute

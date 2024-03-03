@@ -11,14 +11,14 @@ tags:
 show_downloads: [false]
 ---
 
-The NVIDIA GPU Container Runtime is a plugin that enables container platforms to securely access and manage NVIDIA GPUs as part of a containerized application environment.
-Docker is an open-source platform that automates the deployment, scaling, and management of applications within lightweight, portable containers.
-Podman is an open-source, daemonless container engine designed for developing, managing, and running OCI Containers, functioning as a drop-in replacement for Docker.
-This post contains the setup instructions for NVIDIA GPU container toolkits on Linux hosts running Ubuntu 22.04 for docker and podman usage.
+The [NVIDIA GPU Container Runtime](https://developer.nvidia.com/container-runtime) is a plugin that enables [container](https://en.wikipedia.org/wiki/Containerization_(computing)) platforms to securely access and manage [NVIDIA GPUs](https://developer.nvidia.com/cuda-toolkit) as part of a containerized application environment.
+[Docker](https://www.docker.com/) is an open-source platform that automates the deployment, scaling, and management of applications within lightweight, portable containers.
+[Podman](https://podman.io/) is an open-source, daemonless container engine designed for developing, managing, and running [OCI Containers](https://opencontainers.org/), functioning as a drop-in replacement for Docker.
+This post contains the setup instructions for NVIDIA GPU container toolkits on [Linux hosts running Ubuntu 22.04](https://ubuntu.com/) for use with `docker` and `podman`.
 
 <h1>Setting up NVIDIA docker & podman</h1>
 
-Revision: 20240302-0
+Revision: 20240302-1
 
 - [1. Preamble](#1-preamble)
   - [1.1. Confirming the nvidia driver is available](#11-confirming-the-nvidia-driver-is-available)
@@ -219,6 +219,7 @@ podman run --rm --device nvidia.com/gpu=all ubuntu nvidia-smi
 
 # 3. Revision History
 
+- 20240302-1: Added links to the introduction section.
 - 20240302-0: Introduction extension, grammar fixes.
 - 20240225-0: Intitial release.
  

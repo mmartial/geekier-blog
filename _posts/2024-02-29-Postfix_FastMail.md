@@ -10,13 +10,13 @@ tags:
 show_downloads: [false]
 ---
 
-Postfix is a free, open-source mail transfer agent (MTA) used to route and deliver email over the Internet.
-FastMail is a paid service that provides a secure, privacy-focused email provider supporting custom domains.
-This post details the setup instructions for using Postfix as a Send-Only SMTP server, using Fastmail.com, on a Ubuntu Linux 22.04 server.
+[Postfix](https://www.postfix.org/) is a free, open-source mail transfer agent ([MTA](https://en.wikipedia.org/wiki/Message_transfer_agent)) used to route and deliver email over the Internet.
+[FastMail](https://www.fastmail.com/) is a paid service that provides a secure, privacy-focused email provider supporting custom domains.
+This post details the setup instructions for using Postfix as a Send-Only SMTP server, using Fastmail, on a [Ubuntu Linux 22.04 server](https://ubuntu.com/).
 
 <h1>Postfix using Fastmail.com</h1>
 
-Revision: 20240302-0
+Revision: 20240302-1
 
 - [1. Preamble](#1-preamble)
   - [1.1. How to use this guide](#11-how-to-use-this-guide)
@@ -209,7 +209,8 @@ The real confirmation is the reception of the email, sent by `push@example.com` 
 
 # 3. Revision History
 
-- 20230302-0: Introduction extension + `smtpd` vs `smtp` configuration fix
+- 20240302-1: Added links to the introduction section.
+- 20240302-0: Introduction extension + `smtpd` vs `smtp` configuration fix
 - 20240229-0: Intitial release.
  
 ## 3.1. Contribute
