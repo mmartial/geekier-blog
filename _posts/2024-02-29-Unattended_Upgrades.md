@@ -14,7 +14,7 @@ This post details the setup instructions for using it for security updates on an
 
 <h1>Unattended Upgrades</h1>
 
-Revision: 20240302-0
+Revision: 20240306-0
 
 - [1. Preamble](#1-preamble)
   - [1.1. Ubuntu Pro](#11-ubuntu-pro)
@@ -43,6 +43,12 @@ These instructions will enable the end user to have security updates (only) done
 If your system runs Ubuntu Pro, some additional security packages might get installed.
 
 [Ubuntu Pro](https://ubuntu.com/pro) requires a Ubuntu account and is free for up to five systems. It is a subscription-based service offered by Canonical, providing enhanced security and compliance features for Ubuntu users, including extended security maintenance (ESM) for applications and infrastructure, patching for high and critical Common Vulnerabilities and Exposures (CVEs) for supported packages, and additional compliance certifications for regulated industries or sensitive environments. If you have it enabled, go to [https://ubuntu.com/pro/dashboard](https://ubuntu.com/pro/dashboard) and look at the "Command to attach a machine" (in the form of `sudo pro attach TOKEN`) to enable it. When run, you will be prompted with additional details on the different services enabled.
+
+When using Ubuntu Pro, you should see more source packages from the email notification.
+For example, something similar to:
+```bash
+Allowed origins are: o=Ubuntu,a=jammy, o=Ubuntu,a=jammy-security, o=UbuntuESMApps,a=jammy-apps-security, o=UbuntuESM,a=jammy-infra-security, o=Ubuntu,a=jammy, o=Ubuntu,a=jammy-security, o=UbuntuESMApps,a=jammy-apps-security, o=UbuntuESM,a=jammy-infra-security
+```
 
 # 2. Unattended upgrades
 
@@ -116,6 +122,7 @@ When your system informs you that it requires a reboot, this might be an opportu
 
 # 3. Revision History
 
+- 20240306-0: Added Ubuntu Pro additions email example
 - 20240302-0: Added links to the introduction section.
 - 20240229-0: Intitial release.
  
