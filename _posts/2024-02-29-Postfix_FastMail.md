@@ -16,7 +16,7 @@ This post details the setup instructions for using Postfix as a Send-Only SMTP s
 
 <h1>Postfix using Fastmail.com</h1>
 
-Revision: 20240302-1
+Revision: 20240312-0
 
 - [1. Preamble](#1-preamble)
   - [1.1. How to use this guide](#11-how-to-use-this-guide)
@@ -85,7 +85,8 @@ From your Fastmail "Settings" dashboard, select `Stay Secure -> Privacy & Securi
 ## 2.2. Postfix setup
 
 Although unlikely to occur with the header fixes, we invite you to set up the server's `hostname` to be a Fully Qualified Domain Main ([FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name)).
-To do so `sudo nano /etc/hostname` and replace the value by `host.example.com`. 
+To do so `sudo nano /etc/hostname` and replace the value by `host.example.com`.
+If your host is not publicly accessible (on a private network), also add `host.example.com` in `/etc/hosts` with the local IP, so that the host can find itself and not attempt to do a DNS lookup.
 A reboot is recommended, but you can also `sudo hostname host.example.com` until the next reboot.
 
 ### 2.2.1. mailutils
@@ -209,6 +210,7 @@ The real confirmation is the reception of the email, sent by `push@example.com` 
 
 # 3. Revision History
 
+- 20240312-0: local network clarification
 - 20240302-1: Added links to the introduction section.
 - 20240302-0: Introduction extension + `smtpd` vs `smtp` configuration fix
 - 20240229-0: Intitial release.
