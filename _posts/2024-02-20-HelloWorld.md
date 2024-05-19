@@ -9,4 +9,4 @@ show_downloads: [false]
 
 First post...
 
-More posts to follow but likely being posted with past dates to reflect content that was posted in `gist`s or their own repositories.
+Blog content moved to [https://blg.gkr.one/](https://blg.gkr.one/)
