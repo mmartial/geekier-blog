@@ -8,4 +8,4 @@ tags:
 show_downloads: [false]
 ---
 
-Content moved to [https://blg.gkr.one/20240312UnattendedUpgrades](https://blg.gkr.one/20240312UnattendedUpgrades)
+Content moved to [https://lnk.gkr.one/20240312UnattendedUpgrades](https://lnk.gkr.one/20240312UnattendedUpgrades)

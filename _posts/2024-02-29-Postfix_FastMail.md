@@ -10,4 +10,4 @@ tags:
 show_downloads: [false]
 ---
 
-Content moved to [https://blg.gkr.one/20240312EmailPostfixFastmail](https://blg.gkr.one/20240312EmailPostfixFastmail)
+Content moved to [https://lnk.gkr.one/20240312EmailPostfixFastmail](https://lnk.gkr.one/20240312EmailPostfixFastmail)

@@ -11,4 +11,4 @@ tags:
 show_downloads: [false]
 ---
 
-Content moved to [https://blg.gkr.one/20240224NvidiaDockerPodman](https://blg.gkr.one/20240224NvidiaDockerPodman)
+Content moved to [https://lnk.gkr.one/20240224NvidiaDockerPodmanU22](https://lnk.gkr.one/20240224NvidiaDockerPodmanU22)
